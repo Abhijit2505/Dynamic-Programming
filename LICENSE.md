@@ -1,6 +1,7 @@
-MIT License
+# MIT License
 
 Copyright (c) 2020 Treasure Code Algorithm
+
 Copyright (c) 2020 <a href = "https://github.com/Abhijit2505">Abhijit Tripathy</a>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
