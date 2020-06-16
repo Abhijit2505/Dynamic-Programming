@@ -228,7 +228,9 @@ Tabulation is done using a two dimensional array in this case. Whose dimensions 
                         return rec_helper(first,second,m-1,n-1);
                     }
 
-                    return 1 + min(rec_helper(first,second,m,n-1),rec_helper(first,second,m-1,n),rec_helper(first,second,m-1,n-1));
+                    return 1 + min(rec_helper(first,second,m,n-1),
+                                   rec_helper(first,second,m-1,n),
+                                   rec_helper(first,second,m-1,n-1));
                 }
                 int editDistance(string first, string second)
                 {
