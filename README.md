@@ -159,7 +159,7 @@ A subsequence of a string S whose length is n, is a string containing characters
     
 <b>The Dynamic Approach:</b>
 
-Tabulation is done using a two dimensional array in this case. Whose dimensions are same as that of the length of the strings.
+Tabulation is done using a two dimensional array in this case. Whose dimensions are same as that of the length of the strings + 1 .
 
     class dynamic_approach
     {
