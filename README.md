@@ -1,7 +1,7 @@
 # Dynamic-Programming
 Dynamic Programming is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using Dynamic Programming. This repository contains all my practice codes on dynamic programming along with the recursive implementations. 
 
-### The Staircase Problem
+### 🏟 The Staircase Problem 
 
 <b>Problem Statement :</b> A child is running up a staircase with N steps, and can hop either 1 step, 2 steps or 3 steps at a time. Implement a method to count how many possible ways the child can run up to the stairs. You need to return number of possible ways W.
 
@@ -53,7 +53,7 @@ Dynamic Programming is mainly an optimization over plain recursion. Wherever we 
         }
     };
 
-### The Staircase Problem
+### 🚶‍ The Minimum Step Problem 
 
 <b>Problem Statement :</b> Given a positive integer n, find the minimum number of steps s, that takes n to 1. You can perform any one of the following 3 steps.
 
@@ -118,7 +118,7 @@ Dynamic Programming is mainly an optimization over plain recursion. Wherever we 
         }
     };
 
-### The Largest Common Substring Problem
+### 🔠 The Largest Common Substring Problem 
 
 <b>Problem Statement :</b>Given 2 strings of S1 and S2 with lengths m and n respectively, find the length of longest common subsequence.
 A subsequence of a string S whose length is n, is a string containing characters in same relative order as they are present in S, but not necessarily contiguous. Subsequences contain all the strings of length varying from 0 to n. E.g. subsequences of string "abc" are - "",a,b,c,ab,bc,ac,abc.
@@ -191,7 +191,7 @@ Tabulation is done using a two dimensional array in this case. Whose dimensions 
         }
     };
 
-### The edit Distance Problem
+### 🚗 The edit Distance Problem 
 
 <b>Problem Statement :</b> Given two strings s and t of lengths m and n respectively, find the Edit Distance between the strings. Edit Distance of two strings is minimum number of steps required to make one string equal to other. In order to do so you can perform following three operations only :
 1. Delete a character
@@ -279,7 +279,7 @@ Tabulation is done using a two dimensional array in this case. Whose dimensions 
         }
     };
  
-### The Lottery Bill Problem
+### 🎟 The Lottery Bill Problem 
 
 <b>Problem Statement :</b> Allen has a LOT of money. He has n dollars in the bank. For security reasons, he wants to withdraw it in cash (we will not disclose the reasons here). The denominations for dollar bills are 1, 5, 10, 20, 100. What is the minimum number of bills Allen could receive after withdrawing his entire balance?
 
