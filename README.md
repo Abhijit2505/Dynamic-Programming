@@ -1,7 +1,7 @@
 # Dynamic-Programming
 Dynamic Programming is mainly an optimization over plain recursion. Wherever we see a recursive solution that has repeated calls for same inputs, we can optimize it using Dynamic Programming. This repository contains all my practice codes on dynamic programming along with the recursive implementations. 
 
-### The Staircase Problem
+### 🏟 The Staircase Problem 
 
 <b>Problem Statement :</b> A child is running up a staircase with N steps, and can hop either 1 step, 2 steps or 3 steps at a time. Implement a method to count how many possible ways the child can run up to the stairs. You need to return number of possible ways W.
 
@@ -53,7 +53,7 @@ Dynamic Programming is mainly an optimization over plain recursion. Wherever we 
         }
     };
 
-### The Staircase Problem
+### 🚶‍ The Minimum Step Problem 
 
 <b>Problem Statement :</b> Given a positive integer n, find the minimum number of steps s, that takes n to 1. You can perform any one of the following 3 steps.
 
@@ -118,7 +118,7 @@ Dynamic Programming is mainly an optimization over plain recursion. Wherever we 
         }
     };
 
-### The Largest Common Substring Problem
+### 🔠 The Largest Common Substring Problem 
 
 <b>Problem Statement :</b>Given 2 strings of S1 and S2 with lengths m and n respectively, find the length of longest common subsequence.
 A subsequence of a string S whose length is n, is a string containing characters in same relative order as they are present in S, but not necessarily contiguous. Subsequences contain all the strings of length varying from 0 to n. E.g. subsequences of string "abc" are - "",a,b,c,ab,bc,ac,abc.
@@ -191,7 +191,7 @@ Tabulation is done using a two dimensional array in this case. Whose dimensions 
         }
     };
 
-### The edit Distance Problem
+### 🚗 The edit Distance Problem 
 
 <b>Problem Statement :</b> Given two strings s and t of lengths m and n respectively, find the Edit Distance between the strings. Edit Distance of two strings is minimum number of steps required to make one string equal to other. In order to do so you can perform following three operations only :
 1. Delete a character
@@ -278,3 +278,180 @@ Tabulation is done using a two dimensional array in this case. Whose dimensions 
             return table[m][n];
         }
     };
+ 
+### 🎟 The Lottery Bill Problem 
+
+<b>Problem Statement :</b> Allen has a LOT of money. He has n dollars in the bank. For security reasons, he wants to withdraw it in cash (we will not disclose the reasons here). The denominations for dollar bills are 1, 5, 10, 20, 100. What is the minimum number of bills Allen could receive after withdrawing his entire balance?
+
+<b>The Recursive Approach:</b>
+
+    class recursive_approach
+    {
+    public:
+        ll bill_num(ll amount)
+        {
+            if(amount==0)
+            {
+                return 0;
+            }
+            if(amount >= 100)
+            {
+                amount = amount - 100;
+            }
+            else if(amount >= 20)
+            {
+                amount = amount - 20;
+            }
+            else if(amount >= 10)
+            {
+                amount = amount - 10;
+            }
+            else if(amount >= 5)
+            {
+                amount = amount - 5;
+            }
+            else if(amount >= 1)
+            {
+                amount = amount - 1;
+            }
+            return 1 + bill_num(amount);
+        }
+    };
+
+<b>The Dynamic Approach:</b>
+
+    class dynamic_approach
+    {
+    public:
+        ll bill_num(ll amount)
+        {
+            ll arr[amount+1];
+            arr[0] = 0;
+            for(ll i=1;i<=amount;i++)
+            {
+                if(i>=100)
+                {
+                    arr[i] = i/100 + arr[i%100];
+                }
+                else if(i>=20)
+                {
+                    arr[i] = i/20 + arr[i%20];
+                }
+                else if(i>=10)
+                {
+                    arr[i] = i/10 + arr[i%10];
+                }
+                else if(i>=5)
+                {
+                    arr[i] = i/5 + arr[i%5];
+                }
+                else if(i>=1)
+                {
+                    arr[i] = i/1 + arr[i%1];
+                }
+            }
+            return arr[amount];
+        }
+    };
+
+<b>The Optimized Dynamic Approach:</b>
+
+    class optimized_dynamic_approach
+    {
+    public:
+        ll bill_num(ll amount)
+        {
+            ll count = 0;
+            if(amount/100)
+            {
+                count+=(amount/100);
+                amount -= (amount/100)*100;
+            }
+            if(amount/20)
+            {
+                count+=(amount/20);
+                amount -= (amount/20)*20;
+            }
+            if(amount/10)
+            {
+                count+=(amount/10);
+                amount -= (amount/10)*10;
+            }
+            if(amount/5)
+            {
+                count+=(amount/5);
+                amount -= (amount/5)*5;
+            }
+            count+=amount;
+            return count;
+        }
+    };
+    
+<b>The Python Approach</b>
+
+    amount = int(input())
+    count = 0
+
+    if int(amount/100):
+        count+=int(amount/100)
+        amount -= int(amount/100)*100
+    if int(amount/20):
+        count+=int(amount/20)
+        amount -= int(amount/20)*20
+    if int(amount/10):
+        count+=int(amount/10)
+        amount -= int(amount/10)*10
+    if int(amount/5):
+        count+=int(amount/5)
+        amount -= int(amount/5)*5
+    count+=amount
+    print(count)
+
+### 📈 Maximum Increase Problem
+
+<b>Problem Statement :</b> You are given array consisting of n integers. Your task is to find the maximum length of an increasing subarray of the given array.A subarray is the sequence of consecutive elements of the array. Subarray is called increasing if each element of this subarray strictly greater than previous.
+
+<b>The Dynamic Approach:</b>
+
+    typedef long long int ll;
+
+    int main()
+    {
+        ll n;
+        cin >> n;
+        ll* arr = new ll[n];
+        ll* arr2 = new ll[n];
+        for(ll i=0;i<n;i++)
+        {
+            cin >> arr[i];
+        }
+        arr2[0] = 1;
+        for(ll i=1;i<n;i++)
+        {
+            if(arr[i] > arr[i-1])
+            {
+                arr2[i] = arr2[i-1]+1;
+            }
+            else
+            {
+                arr2[i] = 1;
+            }
+        }
+        sort(arr2,arr2+n);
+        cout << arr2[n-1] << endl;
+        return 0;
+    }
+    
+<b>The Python Approach</b>
+
+    n = int(input())
+    arr = list(map(int,input().split()))
+
+
+    arr2 = [1] * n
+
+    for i in range(1,n):
+        if arr[i] > arr[i-1]:
+            arr2[i] = arr2[i-1]+1
+    arr2.sort()
+    print(arr2[n-1])
